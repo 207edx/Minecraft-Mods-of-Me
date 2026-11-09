@@ -1,6 +1,6 @@
 # Minecraft Mods of Me
 
-This repository contains the AstroBackport 1.16.1 Forge source archive and its GitHub Actions build workflow.
+Build pipeline prepared for **AstroBackport 2.0.0**.
 
 ## Target
 - Minecraft 1.16.1
@@ -9,6 +9,7 @@ This repository contains the AstroBackport 1.16.1 Forge source archive and its G
 - Java 8
 - Gradle 4.10.3
 
-The `Mod.zip` archive is unpacked by GitHub Actions and compiled with `clean build`. The reobfuscated mod JAR is published as a workflow artifact after a successful build.
+## Build
+Upload the supplied source archive as **`Mod.zip`** in the repository root. A push containing that file automatically starts the GitHub Actions workflow. It validates the archive, runs `gradle --no-daemon clean build`, and publishes the reobfuscated mod JAR as a downloadable Actions artifact.
 
-See the Actions tab for build status and downloadable artifacts.
+The source project is expected at `AstroBackport-1.16.1-2.0.0/` inside the ZIP.
