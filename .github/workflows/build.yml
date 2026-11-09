@@ -4,8 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - "archive/Mod.zip.part-*"
-      - ".github/workflows/build.yml"
+      - "Mod.zip"
   workflow_dispatch:
 
 permissions:
