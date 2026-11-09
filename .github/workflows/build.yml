@@ -1,0 +1,64 @@
+name: Build AstroBackport 1.16.1 Forge
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Mod.zip"
+      - ".github/workflows/build.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "8"
+
+      - name: Set up Gradle 4.10.3
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "4.10.3"
+
+      - name: Validate and extract source ZIP
+        run: |
+          test -s Mod.zip
+          unzip -t Mod.zip
+          mkdir -p build-src
+          unzip -q Mod.zip -d build-src
+          test -f build-src/AstroBackport-1.16.1-2.0.0/build.gradle
+
+      - name: Build and reobfuscate
+        working-directory: build-src/AstroBackport-1.16.1-2.0.0
+        run: |
+          java -version
+          gradle --version
+          gradle --no-daemon clean build
+
+      - name: Find and verify JAR
+        id: jar
+        shell: bash
+        run: |
+          set -euo pipefail
+          JAR="$(find build-src/AstroBackport-1.16.1-2.0.0/build/libs -maxdepth 1 -type f -name '*.jar' ! -name '*-dev.jar' ! -name '*-sources.jar' ! -name '*-javadoc.jar' | sort | head -n 1)"
+          test -n "$JAR"
+          test -s "$JAR"
+          echo "path=$JAR" >> "$GITHUB_OUTPUT"
+          ls -lh "$JAR"
+
+      - name: Upload compiled JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: AstroBackport-1.16.1-Forge-32.0.108
+          path: ${{ steps.jar.outputs.path }}
+          if-no-files-found: error
+          retention-days: 30
