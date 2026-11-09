@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   build:
@@ -24,36 +24,17 @@ jobs:
         with:
           distribution: temurin
           java-version: "8"
-          cache: gradle
 
       - name: Set up Gradle 4.10.3
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: "4.10.3"
 
-      - name: Reassemble original ZIP
-        shell: bash
+      - name: Verify original ZIP
         run: |
-          set -euo pipefail
-          test -d archive
-          shopt -s nullglob
-          parts=(archive/Mod.zip.part-*)
-          test "${#parts[@]}" -gt 0
-          cat "${parts[@]}" > Mod.zip
+          test -s Mod.zip || { echo "::error::Upload the original Mod.zip to the repository root."; exit 1; }
           unzip -t Mod.zip
           sha256sum Mod.zip
-
-      - name: Keep original ZIP in repository
-        shell: bash
-        run: |
-          set -euo pipefail
-          if ! git ls-files --error-unmatch Mod.zip >/dev/null 2>&1; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add Mod.zip
-            git commit -m "Add original AstroBackport source archive"
-            git push
-          fi
 
       - name: Extract source project
         run: |
@@ -75,7 +56,7 @@ jobs:
         run: |
           set -euo pipefail
           find build-src/AstroBackport-1.16.1-2.0.0/build/libs -maxdepth 1 -type f -name '*.jar' -print
-          JAR="$(find build-src/AstroBackport-1.16.1-2.0.0/build/libs -maxdepth 1 -type f -name '*.jar' ! -name '*-sources.jar' ! -name '*-javadoc.jar' | head -n 1)"
+          JAR="$(find build-src/AstroBackport-1.16.1-2.0.0/build/libs -maxdepth 1 -type f -name '*.jar' ! -name '*-dev.jar' ! -name '*-sources.jar' ! -name '*-javadoc.jar' | sort | head -n 1)"
           test -n "$JAR"
           test -s "$JAR"
           echo "JAR_PATH=$JAR" >> "$GITHUB_ENV"
