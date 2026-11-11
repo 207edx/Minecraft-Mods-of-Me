@@ -2,7 +2,28 @@
 
 **Purpose:** One place for every planned natural block, building material, ore, decorative set and functional world block in AstroWorldGen.
 
-> All entries in this catalogue are planned designs, not registered or implemented blocks yet. Exact hardness, harvest tools, light levels, sounds, drops and recipe counts must be finalized against Minecraft 1.16.1 and then tested in-game.
+> This catalogue mixes an initial source-registered prototype batch with planned designs. The source-registered batch is listed below; all other entries remain planned until code and in-game verification are recorded. Exact hardness, harvest tools, light levels, sounds and drops still require testing.
+
+## 0. First source-registered batch
+
+The current source tree registers the following **32 base blocks** as placeable block items. Their natural world generation is not yet implemented.
+
+| Family | Registered base blocks |
+|---|---|
+| Deepslate | deepslate, cobbled_deepslate, polished_deepslate, deepslate_bricks, deepslate_iron_ore |
+| Lush caves | lush_moss_block, rooted_cave_soil, glowshroom_block |
+| Ice/winter | froststone, froststone_bricks, snow_bricks, frost_crystal_block |
+| Sulfur | sulfur_ore, sulfur_stone, sulfur_stone_bricks, sulfur_block |
+| Volcanic/lava caves | volcanic_rock, volcanic_bricks, ash_block, ashstone_bricks, emberstone |
+| Crystal | crystal_block |
+| End | alien_soil, deadwood_planks, lilac_stone, lilac_stone_bricks, end_shard_ore |
+| Nether | caldera_rock, soulglass, emberwood_planks, crimson_mire_bricks |
+| Fossil | fossil_stone |
+
+Six resource items are registered: sulfur, frost_crystal, crystal_shard, ember_fragment, ash and end_shard.
+
+**Prototype limitations:** the first block batch uses simple full-cube block classes. Its JSON models currently reference existing vanilla textures as temporary placeholders. Specialized block shapes, custom textures, correct ore Fortune/Silk Touch behavior, ambient effects, block entities and natural placement are not yet implemented. The wood-themed plank blocks still need final material/tool-property review before release.
+
 
 ## 1. Block-family rules
 

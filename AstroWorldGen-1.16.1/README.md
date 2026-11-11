@@ -4,7 +4,7 @@
 
 AstroWorldGen is planned as a broad world update: a much larger and more varied Overworld, giant connected cave systems, a winter biome expansion, a richer Nether, and a substantially wider End with new biomes, structures, resources and discoveries.
 
-> **Current milestone: foundation + expanded design catalogue.** The Forge project has passed its initial GitHub Actions compile/reobfuscation build. The additional biomes, cave types, Nether/End generation and height expansion described here remain planned until their individual in-game acceptance tests pass.
+> **Current milestone: material registration prototype.** The foundation build passed, and the first source batch now registers 32 placeable base blocks, 6 resource items and 13 recipes. The current code build is being checked by GitHub Actions. Biome placement, custom textures, stairs/slabs/walls, cave generation and the 500-block height remain separate work.
 
 ## Locked target
 
@@ -58,7 +58,7 @@ The height target is upward expansion only. It does not include negative Y. It i
 
 ## Blocks, materials and recipes
 
-AstroWorldGen has a planned block catalogue covering Deepslate, Lush Cave growth, Ice Spikes and frost blocks, sulfur, volcanic and crystal materials, Nether sets, End wood/stone families, and decorative variants. Recipe design covers crafting, stonecutting, smelting, blasting, loot and resource progression. These are design entries until registered and tested.
+AstroWorldGen has a full block catalogue covering Deepslate, Lush Cave growth, Ice Spikes and frost blocks, sulfur, volcanic and crystal materials, Nether sets, End wood/stone families and decorative variants. The first 32 base blocks and 6 resource items are now registered in source with block/item models, blockstates, loot tables and language names. Thirteen starter crafting recipes are included. These first-pass models reuse vanilla textures as placeholders; custom textures, extra shape variants and natural placement are still pending.
 
 - [Blocks and material variants](docs/BLOCKS-CATALOG.md)
 - [Crafting and processing recipes](docs/RECIPES-AND-CRAFTING.md)

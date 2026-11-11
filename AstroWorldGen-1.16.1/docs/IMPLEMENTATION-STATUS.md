@@ -1,6 +1,6 @@
 # Implementation Status
 
-**Current state: project foundation + design catalogue. The foundation Forge build passed once in GitHub Actions. No world-generation feature is yet claimed as in-game implemented.**
+**Current state: project foundation + first material/recipe source batch. The initial foundation CI build passed. The new 32-block/6-item/13-recipe code batch is awaiting its own CI result. No natural biome/cave generation or extended-height feature is claimed as in-game implemented.**
 
 | Area | Status | Next proof required |
 |---|---|---|
@@ -38,15 +38,20 @@
 | End Shards / Void Totem / potions | Planned | Item logic and safe-destination tests |
 | Phantom spawn relocation | Planned | Configurable spawn tests |
 | Stronghold redesign | Planned | Structure connectivity and portal-room test |
-| Block/material catalogue | Design added | Select first block families for registration |
-| Deepslate and stone variants | Planned | Register base blocks, variants, models, loot and recipes |
-| Lush Cave blocks | Planned | Moss, roots, vines, glowshrooms and natural placement |
-| Ice/Froststone and Ice Spikes | Planned | Ice block family, spike features and cold-biome placement |
-| Sulfur/volcanic materials | Planned | Ore drops, vents, processing and cave placement |
+| Block/material catalogue | Design added; first batch source written | Expand family variants after prototype verification |
+| First base block registry | Source written: 32 base blocks | Compile, launch client and inspect creative inventory |
+| Resource item registry | Source written: 6 items | Compile and test item models/behavior |
+| Blockstates/models/loot/lang | Source written for first batch | Verify resource loading and all block drops in-game |
+| First crafting recipes | Source written: 13 shaped recipes | Verify recipe loading, crafting and recipe-book unlocks |
+| Unique block textures | Not implemented; vanilla texture placeholders used | Create/test original textures for each material |
+| Deepslate and stone variants | Base blocks source written | Add ore variants, stairs/slabs/walls and natural placement |
+| Lush Cave blocks | 3 base blocks source written | Add roots/vines/flowers and natural cave placement |
+| Ice/Froststone and Ice Spikes | 4 base blocks source written; spike feature planned | Add frost variants, icicles, spike generation and cold-biome placement |
+| Sulfur/volcanic materials | Base blocks/items/recipes source written | Improve ore drops, add vents and natural cave placement |
 | Crystal/fungal/fossil materials | Planned | Block families, resources and cave generation |
 | Nether material families | Planned | Ashstone, Emberwood, Soulglass, Caldera and Mire sets |
 | End material families | Planned | Alien wood/soil, Deadwood, lilac stone and End crystal sets |
-| Crafting/stonecutting/smelting recipes | Design added | Validate 1.16.1 recipes after block registration |
+| Crafting recipes | Source written: 13 shaped recipes | Validate in 1.16.1; add stonecutting, smelting and blasting |
 | Functional workstations | Concept only | Define GUI, block entity and recipe behavior before coding |
 
 ## Status vocabulary
