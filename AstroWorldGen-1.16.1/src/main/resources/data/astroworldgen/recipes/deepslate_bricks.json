@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PP",
+    "PP"
+  ],
+  "key": {
+    "P": {
+      "item": "astroworldgen:polished_deepslate"
+    }
+  },
+  "result": {
+    "item": "astroworldgen:deepslate_bricks",
+    "count": 4
+  }
+}

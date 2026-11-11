@@ -8,8 +8,8 @@ version="0.1.0"
 displayName="AstroWorldGen"
 authors="Astro"
 description='''
-A world-generation expansion for Minecraft 1.16.1.
-Planned features include a taller Overworld, expanded caves,
-winter biomes and structures, and a large End update.
-The initial project foundation does not yet implement these features.
+An expanding world-generation project for Minecraft 1.16.1.
+The first content batch registers starter materials from the cave,
+winter, Nether and End design catalogues. Natural generation and
+the experimental 500-block build height are still under development.
 '''
