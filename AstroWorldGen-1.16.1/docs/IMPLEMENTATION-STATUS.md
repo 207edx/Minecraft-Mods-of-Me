@@ -1,25 +1,41 @@
 # Implementation Status
 
-**Status at project creation: foundation only. No gameplay feature is claimed as implemented.**
+**Current state: project foundation + design catalogue. The foundation Forge build passed once in GitHub Actions. No world-generation feature is yet claimed as in-game implemented.**
 
 | Area | Status | Next proof required |
 |---|---|---|
-| Forge project layout | Added in foundation branch | First GitHub Actions build |
-| Mod entry point | Starter class added | Confirm Forge 32.0.108 load |
-| Build workflow | Added | Green CI compile/reobfuscation |
-| 500-block height | Not implemented | Source audit and block-above-255 prototype |
+| Forge project layout | Build verified | Keep CI green while modules are added |
+| Mod entry point | Build verified | Confirm Forge 32.0.108 loads in-game |
+| GitHub Actions build | Build verified | Re-run after expanded docs/workflow change |
+| Source ZIP artifact | Workflow added | Confirm ZIP upload in next successful run |
+| 500-block Overworld height | Not implemented | Source audit and block-above-255 prototype |
 | Bedrock at Y=0 | Design requirement | Verify after height prototype |
-| Taller Overworld terrain | Not implemented | Expanded terrain generation test |
-| Large/deep cave networks | Not implemented | Natural generation and chunk-border test |
-| Winter surface biomes | Planned | First biome generation test |
-| Ice Caves | Planned; related design exists in IceUpdate docs | Integrate/adapt and test in fresh world |
-| Winter structures | Planned | Structure placement and loot test |
-| Purple Alien Jungle | Planned | End biome/terrain generation test |
-| Cold End | Planned | End biome/terrain generation test |
-| Dead Forest | Planned | End biome, palette and vegetation test |
-| End islands and cave spaces | Planned | End terrain generation test |
-| End Ruins and rare structures | Planned | Structure placement, loot and multiplayer test |
-| End Shards / Void Totem / potions | Planned | Item, safe-destination and progression tests |
+| Taller mountains/plateaus | Planned | Terrain prototype and seed tests |
+| Ancient Redwood / Autumn Woodland / Misty Pine | Planned | First biome registration and natural generation |
+| Blooming Meadow / Willow Marsh / Crystal Springs | Planned | Biome transition and feature tests |
+| Alpine Glacier / Cloud Plateau / Wind-Carved Highlands | Planned | Height and surface-generation tests |
+| Mega-cave networks | Planned | Chunk-safe cave carver/shape prototype |
+| Lush Caves | Planned | Natural biome/region generation test |
+| Sulfur Caves | Planned | Sulfur deposits, vents and resource-loop test |
+| Lava Caves | Planned | Volcanic cave/contained lava test |
+| Crystal Caverns | Planned | Crystal generation and resource use |
+| Ice Caves | Planned; related winter design exists in IceUpdate | Integrate/adapt and test in fresh worlds |
+| Fungal Caves | Planned | Cave ecology and vegetation test |
+| Flooded Caves | Planned | Fluid containment and chunk-border test |
+| Fossil Chambers / Deep Stone Halls | Planned | Rare structure/feature test |
+| Winter surface biomes | Planned | First cold biome generation test |
+| Winter structures | Planned | Structure placement, loot and server test |
+| Nether new biomes | Planned | Ashen Wastes prototype first |
+| Nether terrain/caves | Planned | Lava and basalt generation tests |
+| Nether structures | Planned | Placement, loot and portal compatibility test |
+| Wider End island layout | Planned | End island scale/spacing prototype |
+| Purple Alien Jungle | Planned | End biome and plant generation test |
+| Cold End | Planned | End biome and ecosystem test |
+| Dead Forest | Planned | Biome palette and vegetation test |
+| Crystal Barrens / Chorus Wetlands / Void Gardens | Planned | Biome and resource generation tests |
+| End island interior caves | Planned | Cave generation inside large islands |
+| End Ruins / Observatories / Void Citadel | Planned | Structure, loot and progression tests |
+| End Shards / Void Totem / potions | Planned | Item logic and safe-destination tests |
 | Phantom spawn relocation | Planned | Configurable spawn tests |
 | Stronghold redesign | Planned | Structure connectivity and portal-room test |
 
@@ -29,6 +45,6 @@
 - **Source written:** code exists but has not passed CI.
 - **Build verified:** GitHub Actions completed compile/reobfuscation successfully.
 - **In-game tested:** tested on the locked target version with results recorded.
-- **Complete:** acceptance criteria pass, including save/reload and server tests where relevant.
+- **Complete:** acceptance criteria pass, including save/reload and dedicated-server tests where relevant.
 
-A successful build must never be reported as proof that world generation or the expanded height works in-game.
+The initial green build verifies only the starter Forge project. It does not prove any of the planned biomes, caves, structures or height changes work in Minecraft.
