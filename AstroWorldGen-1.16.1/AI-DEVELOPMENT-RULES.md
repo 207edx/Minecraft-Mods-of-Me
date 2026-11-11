@@ -60,6 +60,18 @@ Do not upgrade the project to a later Minecraft or Forge version to avoid an err
 - Update docs/IMPLEMENTATION-STATUS.md after each verified milestone.
 - Never remove existing user features or overwrite IceUpdate without an explicit plan.
 
+## Block and recipe discipline
+
+- Read BLOCKS-CATALOG.md and RECIPES-AND-CRAFTING.md before registering materials.
+- Do not add a block registry entry alone and call a block finished.
+- For every block, check properties/tool requirements, loot table, blockstate, block model, item model, texture, language entry, tags, creative tab and natural-generation/recipe route.
+- Add the matching stairs/slabs/walls only when that material is intended as a building set.
+- Wood sets should be consistent across logs, stripped logs, wood, stripped wood, planks, leaves/saplings and matching building forms where relevant.
+- Validate all recipe JSON against 1.16.1; verify ingredient/result IDs, counts, recipe unlocks and station type.
+- Test Fortune/Silk Touch drops, smelting/blasting, stonecutting, waterlogging, light and collision behavior where applicable.
+- Do not create recipes that duplicate rare progression materials or create infinite conversion loops.
+- Natural-only blocks and structures must be explicitly marked as non-craftable.
+
 ## Collaboration
 
 Before a large change, summarize target files and compatibility risks. Keep commits focused. When a build fails, use the complete compiler output and fix the first real error before making unrelated edits.

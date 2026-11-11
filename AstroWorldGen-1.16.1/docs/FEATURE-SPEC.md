@@ -200,7 +200,34 @@ See GENERATION-RULES.md.
 - No excessive overlap of large structures or biome features.
 - Respect existing vanilla dimensions and avoid breaking modded dimensions.
 
-## 9. Acceptance criteria
+
+
+## 10. Blocks, variants and crafting
+
+The detailed material catalogue is maintained in BLOCKS-CATALOG.md and recipe progression in RECIPES-AND-CRAFTING.md.
+
+Planned additions include:
+- Deepslate, cobbled/polished deepslate, bricks, tiles, chiseled blocks, pillars, stairs, slabs, walls and matching ore variants.
+- Lush Cave moss, carpets, rooted soil, hanging roots, vines, glowmoss, glowshrooms and cave flowers.
+- Ice/Froststone, packed frost ice, blue frost ice, snow bricks, icicles, frost crystals and natural Ice Spike formations.
+- Sulfur ore, sulfur stone, sulfur crystals, sulfur vents and mineral crust.
+- Volcanic rock, ash, emberstone, basalt/obsidian decorative variants and ember crystals.
+- Crystal, fungal, flooded-cave, fossil and ancient-ruin block families.
+- Nether Ashstone, Emberwood, Soulglass, Caldera Rock and Crimson Mire materials.
+- End alien wood/soil, Deadwood, lilac stone, End froststone, crystal-barren blocks, chorus wetland and void-garden materials.
+- Matching wood families, stone variants, stairs, slabs, walls, doors, trapdoors, fences, gates, signs, buttons and pressure plates where each material supports them.
+- Functional block candidates such as Geology Workbench, Crystal Resonator, Volcanic Forge and End Shard Altar.
+
+Recipe requirements:
+- Use shaped, shapeless, stonecutter, smelting and blasting recipes as appropriate for Minecraft 1.16.1.
+- Give every ore/resource a defined drop and crafting use.
+- Keep rare natural structures and progression materials rare; do not make them trivially craftable.
+- Add blockstates, block/item models, textures, loot tables, tags and language entries for every registered block.
+- Mark natural-only blocks clearly when they do not have a crafting recipe.
+
+All entries remain planned until registered, built and tested in-game. See BLOCKS-CATALOG.md and RECIPES-AND-CRAFTING.md.
+
+## 11. Acceptance criteria
 
 A feature is not complete merely because a Java class, registry entry or JSON file exists.
 

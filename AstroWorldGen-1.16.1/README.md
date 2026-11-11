@@ -56,6 +56,13 @@ The height target is upward expansion only. It does not include negative Y. It i
 - More varied Stronghold rooms, secret passages, puzzles, traps and rewards.
 - World-seed discoveries, environmental clues and new points of interest.
 
+## Blocks, materials and recipes
+
+AstroWorldGen has a planned block catalogue covering Deepslate, Lush Cave growth, Ice Spikes and frost blocks, sulfur, volcanic and crystal materials, Nether sets, End wood/stone families, and decorative variants. Recipe design covers crafting, stonecutting, smelting, blasting, loot and resource progression. These are design entries until registered and tested.
+
+- [Blocks and material variants](docs/BLOCKS-CATALOG.md)
+- [Crafting and processing recipes](docs/RECIPES-AND-CRAFTING.md)
+
 ## Project documents
 
 - [Full feature specification](docs/FEATURE-SPEC.md)

@@ -38,6 +38,16 @@
 | End Shards / Void Totem / potions | Planned | Item logic and safe-destination tests |
 | Phantom spawn relocation | Planned | Configurable spawn tests |
 | Stronghold redesign | Planned | Structure connectivity and portal-room test |
+| Block/material catalogue | Design added | Select first block families for registration |
+| Deepslate and stone variants | Planned | Register base blocks, variants, models, loot and recipes |
+| Lush Cave blocks | Planned | Moss, roots, vines, glowshrooms and natural placement |
+| Ice/Froststone and Ice Spikes | Planned | Ice block family, spike features and cold-biome placement |
+| Sulfur/volcanic materials | Planned | Ore drops, vents, processing and cave placement |
+| Crystal/fungal/fossil materials | Planned | Block families, resources and cave generation |
+| Nether material families | Planned | Ashstone, Emberwood, Soulglass, Caldera and Mire sets |
+| End material families | Planned | Alien wood/soil, Deadwood, lilac stone and End crystal sets |
+| Crafting/stonecutting/smelting recipes | Design added | Validate 1.16.1 recipes after block registration |
+| Functional workstations | Concept only | Define GUI, block entity and recipe behavior before coding |
 
 ## Status vocabulary
 
