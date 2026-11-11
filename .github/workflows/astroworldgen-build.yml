@@ -65,7 +65,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          git archive --format=zip --prefix=AstroWorldGen-1.16.1/ HEAD AstroWorldGen-1.16.1 > "$RUNNER_TEMP/AstroWorldGen-1.16.1-source.zip"
+          git archive --format=zip HEAD AstroWorldGen-1.16.1 > "$RUNNER_TEMP/AstroWorldGen-1.16.1-source.zip"
           test -s "$RUNNER_TEMP/AstroWorldGen-1.16.1-source.zip"
           ls -lh "$RUNNER_TEMP/AstroWorldGen-1.16.1-source.zip"
 
