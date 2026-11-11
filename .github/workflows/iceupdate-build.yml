@@ -1,0 +1,60 @@
+name: IceUpdate Forge 1.16.1 Build
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'IceUpdate-1.16.1/**'
+      - '.github/workflows/iceupdate-build.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 8
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '8'
+          cache: gradle
+
+      - name: Set up Python for generated assets
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install resource generator dependency
+        run: python -m pip install Pillow
+
+      - name: Set up Gradle 4.10.3
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '4.10.3'
+
+      - name: Extract source and generate assets
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/iceupdate-src"
+          unzip -q "$GITHUB_WORKSPACE/IceUpdate-1.16.1/source/IceUpdate-1.16.1-source.zip" -d "$RUNNER_TEMP/iceupdate-src"
+          test -f "$RUNNER_TEMP/iceupdate-src/IceUpdate/build.gradle"
+          cd "$RUNNER_TEMP/iceupdate-src/IceUpdate"
+          python tools/gen_resources.py
+
+      - name: Compile and reobfuscate
+        working-directory: ${{ runner.temp }}/iceupdate-src/IceUpdate
+        run: gradle --no-daemon --stacktrace clean build
+
+      - name: Upload Forge mod JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: iceupdate-forge-1.16.1
+          path: ${{ runner.temp }}/iceupdate-src/IceUpdate/build/libs/*.jar
+          if-no-files-found: error
+          retention-days: 30
