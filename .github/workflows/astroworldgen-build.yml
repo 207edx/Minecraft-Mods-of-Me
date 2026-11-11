@@ -5,6 +5,10 @@ on:
     paths:
       - 'AstroWorldGen-1.16.1/**'
       - '.github/workflows/astroworldgen-build.yml'
+  pull_request:
+    paths:
+      - 'AstroWorldGen-1.16.1/**'
+      - '.github/workflows/astroworldgen-build.yml'
   workflow_dispatch:
 
 permissions:
