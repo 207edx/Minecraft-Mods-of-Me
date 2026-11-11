@@ -4,7 +4,7 @@
 
 AstroWorldGen is planned as a broad world update: a much larger and more varied Overworld, giant connected cave systems, a winter biome expansion, a richer Nether, and a substantially wider End with new biomes, structures, resources and discoveries.
 
-> **Current milestone: material registration prototype.** The foundation build passed, and the first source batch now registers 32 placeable base blocks, 6 resource items and 13 recipes. The current code build is being checked by GitHub Actions. Biome placement, custom textures, stairs/slabs/walls, cave generation and the 500-block height remain separate work.
+> **Current milestone: first block batch build-verified.** GitHub Actions successfully compiled and reobfuscated the starter mod with 32 placeable base blocks, 6 resource items and 13 recipes, then uploaded a JAR and source ZIP. In-game registration and recipe loading still need testing. Biome placement, custom textures, stairs/slabs/walls, cave generation and the 500-block height remain separate work.
 
 ## Locked target
 

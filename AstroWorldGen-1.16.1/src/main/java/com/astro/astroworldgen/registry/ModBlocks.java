@@ -41,13 +41,13 @@ public final class ModBlocks {
     public static final RegistryObject<Block> EMBERSTONE = registerRock("emberstone", 2F, 6F, 0);
     public static final RegistryObject<Block> CRYSTAL_BLOCK = registerRock("crystal_block", 2F, 3F, 0);
     public static final RegistryObject<Block> ALIEN_SOIL = registerRock("alien_soil", 1.5F, 9F, 0);
-    public static final RegistryObject<Block> DEADWOOD_PLANKS = registerWood("deadwood_planks");
+    public static final RegistryObject<Block> DEADWOOD_PLANKS = registerRock("deadwood_planks", 2F, 3F, 0);
     public static final RegistryObject<Block> LILAC_STONE = registerRock("lilac_stone", 1.5F, 6F, 0);
     public static final RegistryObject<Block> LILAC_STONE_BRICKS = registerRock("lilac_stone_bricks", 1.5F, 6F, 0);
     public static final RegistryObject<Block> END_SHARD_ORE = registerRock("end_shard_ore", 4F, 9F, 2);
     public static final RegistryObject<Block> CALDERA_ROCK = registerRock("caldera_rock", 2F, 6F, 0);
     public static final RegistryObject<Block> SOULGLASS = registerRock("soulglass", 0.8F, 0.8F, 0);
-    public static final RegistryObject<Block> EMBERWOOD_PLANKS = registerWood("emberwood_planks");
+    public static final RegistryObject<Block> EMBERWOOD_PLANKS = registerRock("emberwood_planks", 2F, 3F, 0);
     public static final RegistryObject<Block> CRIMSON_MIRE_BRICKS = registerRock("crimson_mire_bricks", 2F, 6F, 0);
     public static final RegistryObject<Block> FOSSIL_STONE = registerRock("fossil_stone", 2F, 4F, 0);
 
@@ -56,13 +56,6 @@ public final class ModBlocks {
                 .hardnessAndResistance(hardness, resistance)
                 .harvestTool(ToolType.PICKAXE)
                 .harvestLevel(harvestLevel)));
-    }
-
-    private static RegistryObject<Block> registerWood(String name) {
-        return BLOCKS.register(name, () -> new Block(Block.Properties.create(Material.WOOD, MaterialColor.WOOD)
-                .hardnessAndResistance(2.0F, 3.0F)
-                .harvestTool(ToolType.AXE)
-                .harvestLevel(0)));
     }
 
     private ModBlocks() {

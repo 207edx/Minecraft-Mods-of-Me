@@ -25,6 +25,15 @@ Six resource items are registered: sulfur, frost_crystal, crystal_shard, ember_f
 **Prototype limitations:** the first block batch uses simple full-cube block classes. Its JSON models currently reference existing vanilla textures as temporary placeholders. Specialized block shapes, custom textures, correct ore Fortune/Silk Touch behavior, ambient effects, block entities and natural placement are not yet implemented. The wood-themed plank blocks still need final material/tool-property review before release.
 
 
+## Current build result
+
+GitHub Actions run #11 (commit `ea7301da7f14feacc6852fca9dac1dc5b6ce04ac`) completed successfully.
+
+- ForgeGradle compile/reobfuscation: passed.
+- JAR existence/size verification: passed.
+- Source ZIP packaging/upload: passed.
+- In-game block registration, visual resource loading, loot behavior and recipe loading: not yet tested.
+
 ## 1. Block-family rules
 
 For each suitable solid building material, consider a consistent family:

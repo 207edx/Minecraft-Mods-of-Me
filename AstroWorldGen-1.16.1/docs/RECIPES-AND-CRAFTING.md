@@ -1,24 +1,5 @@
 # AstroWorldGen — Crafting and Processing Catalogue
 
-## 0. First source-registered recipe batch
-
-The current source tree includes **13 basic shaped recipes**:
-- Cobbled Deepslate → Polished Deepslate.
-- Polished Deepslate → Deepslate Bricks.
-- Froststone → Froststone Bricks.
-- Snow Blocks → Snow Bricks.
-- Sulfur Stone → Sulfur Stone Bricks.
-- Volcanic Rock → Volcanic Bricks.
-- Compacted Ash → Ashstone Bricks.
-- Lilac Stone → Lilac Stone Bricks.
-- Sulfur → Sulfur Block.
-- Frost Crystals → Frost Crystal Block.
-- Crystal Shards → Cave Crystal Block.
-- Ash → Compacted Ash.
-- Ember Fragments → Emberstone.
-
-These are starter recipes and need in-game recipe-book/unlock checks. The ore drop tables in this first prototype are deliberately simple; Fortune and Silk Touch support must be added and tested before treating the ore system as finished. Stonecutting, full stairs/slabs/walls, smelting/blasting progression and workstation recipes remain planned.
-
 ## 1. Recipe rules
 
 - All recipes must use the Minecraft 1.16.1 recipe format and be validated by loading the game.
