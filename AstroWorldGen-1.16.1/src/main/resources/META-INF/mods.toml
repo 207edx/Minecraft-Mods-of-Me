@@ -1,0 +1,15 @@
+modLoader="javafml"
+loaderVersion="[32,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="astroworldgen"
+version="0.1.0"
+displayName="AstroWorldGen"
+authors="Astro"
+description='''
+A world-generation expansion for Minecraft 1.16.1.
+Planned features include a taller Overworld, expanded caves,
+winter biomes and structures, and a large End update.
+The initial project foundation does not yet implement these features.
+'''
