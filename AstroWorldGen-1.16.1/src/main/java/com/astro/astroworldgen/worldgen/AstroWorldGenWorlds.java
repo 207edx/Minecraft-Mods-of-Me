@@ -133,12 +133,12 @@ public final class AstroWorldGenWorlds {
         addOre(biome, ModBlocks.CRYSTAL_BLOCK.get(),
                 OreFeatureConfig.FillerBlockType.NATURAL_STONE, 5, 2, 8, 52);
 
-        if (biome.getTemperature() <= 0.30F) {
+        if (biome == FROZEN_PINE_VALLEY.get()) {
             addOre(biome, ModBlocks.FROSTSTONE.get(),
                     OreFeatureConfig.FillerBlockType.NATURAL_STONE, 8, 5, 8, 55);
             addOre(biome, ModBlocks.FROST_CRYSTAL_BLOCK.get(),
                     OreFeatureConfig.FillerBlockType.NATURAL_STONE, 4, 2, 10, 46);
-        } else if (biome.getTemperature() >= 0.90F) {
+        } else if (biome == VOLCANIC_BADLANDS.get()) {
             addOre(biome, ModBlocks.SULFUR_ORE.get(),
                     OreFeatureConfig.FillerBlockType.NATURAL_STONE, 7, 4, 8, 55);
             addOre(biome, ModBlocks.VOLCANIC_ROCK.get(),
