@@ -35,27 +35,27 @@ public final class AstroWorldGenWorlds {
             DeferredRegister.create(ForgeRegistries.BIOMES, AstroWorldGen.MOD_ID);
 
     public static final RegistryObject<Biome> CHERRY_GROVE = BIOMES.register("cherry_grove",
-            () -> makeBiome(Biome.Category.FOREST, 0.12F, 0.22F, 0.72F, 0.82F,
+            () -> makeBiome(Biome.Category.FOREST, 0.38F, 0.34F, 0.72F, 0.82F,
                     Biome.RainType.RAIN, 0xD98FB9, 0xB77EA0,
                     Blocks.GRASS_BLOCK, Blocks.DIRT, Blocks.STONE));
 
     public static final RegistryObject<Biome> PALE_FOREST = BIOMES.register("pale_forest",
-            () -> makeBiome(Biome.Category.FOREST, 0.18F, 0.16F, 0.48F, 0.35F,
+            () -> makeBiome(Biome.Category.FOREST, 0.44F, 0.36F, 0.48F, 0.35F,
                     Biome.RainType.RAIN, 0xB8B8C3, 0x81818F,
                     Blocks.GRASS_BLOCK, Blocks.PODZOL, Blocks.STONE));
 
     public static final RegistryObject<Biome> FROZEN_PINE_VALLEY = BIOMES.register("frozen_pine_valley",
-            () -> makeBiome(Biome.Category.TAIGA, 0.18F, 0.08F, -0.35F, 0.55F,
+            () -> makeBiome(Biome.Category.TAIGA, 0.50F, 0.38F, -0.35F, 0.55F,
                     Biome.RainType.SNOW, 0x9BCBE7, 0x668BAA,
                     Blocks.SNOW_BLOCK, Blocks.DIRT, Blocks.STONE));
 
     public static final RegistryObject<Biome> VOLCANIC_BADLANDS = BIOMES.register("volcanic_badlands",
-            () -> makeBiome(Biome.Category.MESA, 0.22F, 0.24F, 1.45F, 0.05F,
+            () -> makeBiome(Biome.Category.MESA, 0.42F, 0.36F, 1.45F, 0.05F,
                     Biome.RainType.NONE, 0x9B665C, 0x5D3938,
                     Blocks.BLACKSTONE, Blocks.BASALT, Blocks.STONE));
 
     public static final RegistryObject<Biome> CRYSTAL_SPRINGS = BIOMES.register("crystal_springs",
-            () -> makeBiome(Biome.Category.FOREST, 0.08F, 0.12F, 0.64F, 0.90F,
+            () -> makeBiome(Biome.Category.FOREST, 0.34F, 0.32F, 0.64F, 0.90F,
                     Biome.RainType.RAIN, 0x65C7CC, 0x39868D,
                     Blocks.GRASS_BLOCK, Blocks.CLAY, Blocks.STONE));
 
@@ -110,9 +110,9 @@ public final class AstroWorldGenWorlds {
                 if (biome.getCategory() == Biome.Category.THEEND) continue;
 
                 biome.addCarver(GenerationStage.Carving.AIR,
-                        Biome.createCarver(WorldCarver.CAVE, new ProbabilityConfig(0.16F)));
+                        Biome.createCarver(WorldCarver.CAVE, new ProbabilityConfig(0.24F)));
                 biome.addCarver(GenerationStage.Carving.AIR,
-                        Biome.createCarver(WorldCarver.CANYON, new ProbabilityConfig(0.018F)));
+                        Biome.createCarver(WorldCarver.CANYON, new ProbabilityConfig(0.025F)));
 
                 addOverworldDeposits(biome);
             }
