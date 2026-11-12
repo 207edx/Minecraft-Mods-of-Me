@@ -12,6 +12,7 @@ import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.Heightmap;
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.DeferredRegister;
@@ -27,13 +28,15 @@ public final class ModEntities {
                     .size(0.6F, 0.9F).build(AstroWorldGen.MOD_ID + ":penguin"));
 
     public static void setup(FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> {
+        // Forge 32.0.108 uses DeferredWorkQueue; enqueueWork is from later Forge releases.
+        DeferredWorkQueue.runLater(() -> {
             GlobalEntityTypeAttributes.put(PENGUIN.get(), ModAttrs.make(10.0D, 0.22D).create());
 
             EntitySpawnPlacementRegistry.register(PENGUIN.get(),
                     EntitySpawnPlacementRegistry.PlacementType.ON_GROUND,
                     Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
-                    (type, world, reason, pos, random) -> canSpawnOnColdGround(world.getBlockState(pos.down()).getBlock()));
+                    (type, world, reason, pos, random) ->
+                            canSpawnOnColdGround(world.getBlockState(pos.down()).getBlock()));
 
             for (Biome biome : ForgeRegistries.BIOMES) {
                 if (biome.getCategory() == Biome.Category.ICY) {
