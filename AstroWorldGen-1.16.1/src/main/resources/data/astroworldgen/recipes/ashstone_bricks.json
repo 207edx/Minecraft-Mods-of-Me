@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AA",
+    "AA"
+  ],
+  "key": {
+    "A": {
+      "item": "astroworldgen:ash_block"
+    }
+  },
+  "result": {
+    "item": "astroworldgen:ashstone_bricks",
+    "count": 4
+  }
+}

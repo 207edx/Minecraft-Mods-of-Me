@@ -1,0 +1,78 @@
+name: AstroWorldGen Forge 1.16.1 Build
+
+on:
+  push:
+    paths:
+      - 'AstroWorldGen-1.16.1/**'
+      - '.github/workflows/astroworldgen-build.yml'
+  pull_request:
+    paths:
+      - 'AstroWorldGen-1.16.1/**'
+      - '.github/workflows/astroworldgen-build.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 8
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '8'
+
+      - name: Set up Gradle 4.10.3
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '4.10.3'
+          cache-disabled: true
+
+      - name: Show toolchain
+        run: |
+          java -version
+          gradle --version
+
+      - name: Compile and reobfuscate
+        working-directory: AstroWorldGen-1.16.1
+        run: gradle --no-daemon --stacktrace clean build
+
+      - name: Verify built JAR
+        id: jar
+        shell: bash
+        run: |
+          set -euo pipefail
+          JAR="$(find AstroWorldGen-1.16.1/build/libs -maxdepth 1 -type f -name '*.jar' ! -name '*-dev.jar' ! -name '*-sources.jar' ! -name '*-javadoc.jar' | sort | head -n 1)"
+          test -n "$JAR"
+          test -s "$JAR"
+          echo "path=$JAR" >> "$GITHUB_OUTPUT"
+          ls -lh "$JAR"
+
+      - name: Upload AstroWorldGen JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: AstroWorldGen-1.16.1-Forge-32.0.108
+          path: ${{ steps.jar.outputs.path }}
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Package source ZIP
+        shell: bash
+        run: |
+          set -euo pipefail
+          git archive --format=zip HEAD AstroWorldGen-1.16.1 > "$RUNNER_TEMP/AstroWorldGen-1.16.1-source.zip"
+          test -s "$RUNNER_TEMP/AstroWorldGen-1.16.1-source.zip"
+          ls -lh "$RUNNER_TEMP/AstroWorldGen-1.16.1-source.zip"
+
+      - name: Upload AstroWorldGen source ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: AstroWorldGen-1.16.1-source
+          path: ${{ runner.temp }}/AstroWorldGen-1.16.1-source.zip
+          if-no-files-found: error
+          retention-days: 90

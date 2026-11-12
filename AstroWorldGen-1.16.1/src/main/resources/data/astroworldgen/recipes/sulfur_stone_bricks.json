@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "key": {
+    "S": {
+      "item": "astroworldgen:sulfur_stone"
+    }
+  },
+  "result": {
+    "item": "astroworldgen:sulfur_stone_bricks",
+    "count": 4
+  }
+}

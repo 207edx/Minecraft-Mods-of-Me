@@ -1,0 +1,15 @@
+modLoader="javafml"
+loaderVersion="[32,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="astroworldgen"
+version="0.2.0"
+displayName="AstroWorldGen"
+authors="Astro"
+description='''
+A Minecraft 1.16.1 world-generation expansion. This milestone adds five
+Overworld biomes, themed legacy cave deposits, Nether material deposits and
+custom pixel textures. The experimental Y=500 build-height engine and
+expanded Nether/End biomes remain unfinished milestones.
+'''

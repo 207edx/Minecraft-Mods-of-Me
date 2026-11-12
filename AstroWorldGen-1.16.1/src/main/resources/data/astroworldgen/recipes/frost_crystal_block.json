@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "FFF",
+    "FFF",
+    "FFF"
+  ],
+  "key": {
+    "F": {
+      "item": "astroworldgen:frost_crystal"
+    }
+  },
+  "result": {
+    "item": "astroworldgen:frost_crystal_block",
+    "count": 1
+  }
+}

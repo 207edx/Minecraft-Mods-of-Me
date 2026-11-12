@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "astroworldgen:block/frost_crystal_block"
+    }
+  }
+}
