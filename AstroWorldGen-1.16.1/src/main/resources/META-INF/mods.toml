@@ -4,12 +4,12 @@ license="All Rights Reserved"
 
 [[mods]]
 modId="astroworldgen"
-version="0.1.0"
+version="0.2.0"
 displayName="AstroWorldGen"
 authors="Astro"
 description='''
-An expanding world-generation project for Minecraft 1.16.1.
-The first content batch registers starter materials from the cave,
-winter, Nether and End design catalogues. Natural generation and
-the experimental 500-block build height are still under development.
+A Minecraft 1.16.1 world-generation expansion. This milestone adds five
+Overworld biomes, themed legacy cave deposits, Nether material deposits and
+custom pixel textures. The experimental Y=500 build-height engine and
+expanded Nether/End biomes remain unfinished milestones.
 '''

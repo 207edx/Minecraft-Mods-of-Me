@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "minecraft:block/blackstone_bricks"
+    "all": "astroworldgen:block/volcanic"
   }
 }

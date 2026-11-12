@@ -1,5 +1,10 @@
 {
   "modid.astroworldgen": "AstroWorldGen",
+  "biome.astroworldgen.cherry_grove": "Cherry Grove",
+  "biome.astroworldgen.pale_forest": "Pale Forest",
+  "biome.astroworldgen.frozen_pine_valley": "Frozen Pine Valley",
+  "biome.astroworldgen.volcanic_badlands": "Volcanic Badlands",
+  "biome.astroworldgen.crystal_springs": "Crystal Springs",
   "block.astroworldgen.deepslate": "Deepslate",
   "block.astroworldgen.cobbled_deepslate": "Cobbled Deepslate",
   "block.astroworldgen.polished_deepslate": "Polished Deepslate",
