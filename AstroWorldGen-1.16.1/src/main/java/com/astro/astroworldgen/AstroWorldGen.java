@@ -4,8 +4,6 @@ import com.astro.astroworldgen.registry.ModBlocks;
 import com.astro.astroworldgen.registry.ModEntities;
 import com.astro.astroworldgen.registry.ModItems;
 import com.astro.astroworldgen.worldgen.AstroWorldGenWorlds;
-import com.astro.astroworldgen.worldgen.CaveChamberGenerator;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -26,8 +24,8 @@ public final class AstroWorldGen {
 
         modBus.addListener(AstroWorldGenWorlds::setup);
         modBus.addListener(ModEntities::setup);
-        MinecraftForge.EVENT_BUS.register(new CaveChamberGenerator());
 
-        LOGGER.info("AstroWorldGen material, biome, cave and penguin systems initialized.");
+        // Terrain additions use biome generation, not chunk-load mutation.
+        LOGGER.info("AstroWorldGen material, biome, cave-carver and penguin systems initialized.");
     }
 }
