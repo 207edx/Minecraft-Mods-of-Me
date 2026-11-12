@@ -1,6 +1,7 @@
 package com.astro.astroworldgen.worldgen;
 
 import com.astro.astroworldgen.AstroWorldGen;
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeAmbience;
@@ -10,14 +11,16 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilderConfig;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 /**
- * Custom Overworld biomes using the original 1.16.1 Biome.Builder API.
- * This intentionally avoids the later 1.16.2+ codec/generation-settings API.
+ * Custom Overworld biomes using the original Forge 32 / Minecraft 1.16.1 API.
+ * In this version a Biome is constructed by subclassing Biome and passing its
+ * Builder to super; the later Builder.build() method is not available.
  */
 public final class AstroWorldGenWorlds {
     public static final DeferredRegister<Biome> BIOMES =
@@ -51,9 +54,8 @@ public final class AstroWorldGenWorlds {
     private static Biome makeBiome(Biome.Category category, float depth, float scale,
                                    float temperature, float downfall, Biome.RainType precipitation,
                                    int waterColor, int waterFogColor,
-                                   net.minecraft.block.Block top, net.minecraft.block.Block filler,
-                                   net.minecraft.block.Block under) {
-        return new Biome.Builder()
+                                   Block top, Block filler, Block under) {
+        Biome.Builder builder = new Biome.Builder()
                 .surfaceBuilder(SurfaceBuilder.DEFAULT,
                         new SurfaceBuilderConfig(top.getDefaultState(), filler.getDefaultState(), under.getDefaultState()))
                 .precipitation(precipitation)
@@ -68,8 +70,8 @@ public final class AstroWorldGenWorlds {
                         .setFogColor(0xC8D8E8)
                         .setMoodSound(MoodSoundAmbience.field_235027_b_)
                         .build())
-                .parent((String) null)
-                .build();
+                .parent((String) null);
+        return new AstroBiome(builder);
     }
 
     public static void register(IEventBus modBus) {
@@ -77,7 +79,8 @@ public final class AstroWorldGenWorlds {
     }
 
     public static void setup(FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> {
+        // Forge 32.0.108 uses DeferredWorkQueue; enqueueWork is from later Forge releases.
+        DeferredWorkQueue.runLater(() -> {
             add(CHERRY_GROVE.get(), BiomeManager.BiomeType.WARM, 7,
                     BiomeDictionary.Type.OVERWORLD, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.WET);
             add(PALE_FOREST.get(), BiomeManager.BiomeType.COOL, 5,
@@ -95,6 +98,12 @@ public final class AstroWorldGenWorlds {
                             BiomeDictionary.Type... types) {
         BiomeDictionary.addTypes(biome, types);
         BiomeManager.addBiome(climate, new BiomeManager.BiomeEntry(biome, weight));
+    }
+
+    private static final class AstroBiome extends Biome {
+        private AstroBiome(Biome.Builder builder) {
+            super(builder);
+        }
     }
 
     private AstroWorldGenWorlds() {
