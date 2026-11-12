@@ -1,8 +1,11 @@
 package com.astro.astroworldgen;
 
 import com.astro.astroworldgen.registry.ModBlocks;
+import com.astro.astroworldgen.registry.ModEntities;
 import com.astro.astroworldgen.registry.ModItems;
 import com.astro.astroworldgen.worldgen.AstroWorldGenWorlds;
+import com.astro.astroworldgen.worldgen.CaveChamberGenerator;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -18,8 +21,13 @@ public final class AstroWorldGen {
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModBlocks.BLOCKS.register(modBus);
         ModItems.ITEMS.register(modBus);
+        ModEntities.ENTITIES.register(modBus);
         AstroWorldGenWorlds.register(modBus);
+
         modBus.addListener(AstroWorldGenWorlds::setup);
-        LOGGER.info("AstroWorldGen material and world-generation registries initialized.");
+        modBus.addListener(ModEntities::setup);
+        MinecraftForge.EVENT_BUS.register(new CaveChamberGenerator());
+
+        LOGGER.info("AstroWorldGen material, biome, cave and penguin systems initialized.");
     }
 }

@@ -37,10 +37,15 @@
   "block.astroworldgen.emberwood_planks": "Emberwood Planks",
   "block.astroworldgen.crimson_mire_bricks": "Crimson Mire Bricks",
   "block.astroworldgen.fossil_stone": "Fossil Stone",
+  "block.astroworldgen.brittle_ice": "Brittle Ice",
+  "block.astroworldgen.ice_crystal": "Ice Crystal",
+  "block.astroworldgen.icicle": "Icicle",
   "item.astroworldgen.sulfur": "Sulfur",
   "item.astroworldgen.frost_crystal": "Frost Crystal",
   "item.astroworldgen.crystal_shard": "Crystal Shard",
   "item.astroworldgen.ember_fragment": "Ember Fragment",
   "item.astroworldgen.ash": "Ash",
-  "item.astroworldgen.end_shard": "End Shard"
+  "item.astroworldgen.end_shard": "End Shard",
+  "item.astroworldgen.penguin_spawn_egg": "Penguin Spawn Egg",
+  "entity.astroworldgen.penguin": "Penguin"
 }

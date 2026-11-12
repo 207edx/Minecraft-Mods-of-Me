@@ -1,34 +1,42 @@
 # AstroWorldGen 1.16.1
 
-AstroWorldGen expands normal Minecraft 1.16.1 world generation while keeping the target at Forge 32.0.108 and Java 8.
+AstroWorldGen expands normal Minecraft 1.16.1 world generation and gameplay content for Forge 32.0.108 / Java 8.
 
-## First world-generation milestone
+## Included in this source milestone
 
-- Five Overworld biomes: Cherry Grove, Pale Forest, Frozen Pine Valley, Volcanic Badlands and Crystal Springs.
-- Custom biome surfaces, climate settings and water palettes.
-- Legacy cave carving on custom biomes.
-- Overworld cave deposits: deepslate iron, fossils, crystals, cold-region frost deposits, hot-region sulfur/volcanic deposits and wet/forest lush/fungal deposits.
-- Nether deposits: caldera rock, ash, emberstone and soulglass.
-- Original 16x16 pixel block textures for material families.
-- Existing 32 blocks, 6 resource items and 13 crafting recipes remain included.
+- Five registered Overworld biome prototypes: Cherry Grove, Pale Forest, Frozen Pine Valley, Volcanic Badlands and Crystal Springs.
+- Themed cave chamber generation for cold, lush, sulfur/volcanic and crystal cave types, using 1.16.1 chunk processing.
+- Ice cave details adapted from the supplied IceUpdate source: Brittle Ice, directional Ice Crystals and falling Icicles.
+- Penguin creature with its own model, texture, renderer and spawn egg; it wanders, swims, follows fish and slides on ice/snow.
+- The original AstroWorldGen material blocks, resource items and starter crafting recipes.
+- Custom pixel-art material and penguin textures.
 
 ## Existing-world behavior
 
-The new biomes are added to the normal Overworld biome selection system. New generation rules apply to newly generated chunks; already generated chunks are not rewritten. Back up and test a copy of an existing save before regular play.
+The new biome weights participate in normal Overworld biome selection. Existing chunks retain their saved biome and block data; newly generated chunks can select the added biomes. The cave pass only runs in AstroWorldGen's custom biomes and stores a per-chunk NBT marker so it does not carve the same chunk repeatedly. Test a copy of an existing save first.
 
-## 1.16.1 limitations
+To see the new biome and cave content, explore areas that have not generated chunks before installing the mod. Both server and clients must have the same mod build for multiplayer.
 
-Minecraft 1.16.1 predates the later 1.18 underground-biome system. The cave themes here use legacy cave carving and biome-attached deposits, not separate underground biome volumes. Fully custom mega-cave shapes and unique cherry/pale tree species are not in this milestone.
+## Minecraft 1.16.1 limitations and unfinished work
 
-The requested Y=500 build ceiling is **not implemented**. It needs separate engine work for chunk storage, heightmaps, lighting, persistence, networking and rendering.
-
-New Nether/End biomes, End island expansion and custom structures remain future work.
+- 1.16.1 has no separate 1.18-style underground-biome volumes. The cave themes are generated chambers and block palettes, not full 3D underground biomes.
+- The custom surface biomes are first prototypes; unique tree species, custom vegetation sets and detailed biome blending still need work and in-game verification.
+- Larger continuous mega-caves, rare cave structures, custom Nether/End biomes and expanded End islands remain unfinished.
+- The requested Y=500 build ceiling is not implemented. It needs a separate engine-level investigation of chunk sections, heightmaps, lighting, saving, networking and rendering.
+- CI success verifies compilation and packaging only; it does not prove in-game world compatibility.
 
 ## Build
 
+Required:
 - Minecraft 1.16.1
 - Forge 32.0.108
 - Java 8
 - Gradle 4.10.3
 
-`gradle --no-daemon clean build`
+From this folder:
+
+```bash
+gradle --no-daemon clean build
+```
+
+GitHub Actions builds the same toolchain and uploads the JAR and source ZIP.

@@ -5,11 +5,12 @@ import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.fml.RegistryObject;
 
-/** Block items and first-wave resource items. */
+/** Block items, resources and the penguin spawn egg. */
 public final class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, AstroWorldGen.MOD_ID);
@@ -47,6 +48,10 @@ public final class ModItems {
     public static final RegistryObject<Item> CRIMSON_MIRE_BRICKS = blockItem("crimson_mire_bricks", ModBlocks.CRIMSON_MIRE_BRICKS);
     public static final RegistryObject<Item> FOSSIL_STONE = blockItem("fossil_stone", ModBlocks.FOSSIL_STONE);
 
+    public static final RegistryObject<Item> BRITTLE_ICE = blockItem("brittle_ice", ModBlocks.BRITTLE_ICE);
+    public static final RegistryObject<Item> ICE_CRYSTAL = blockItem("ice_crystal", ModBlocks.ICE_CRYSTAL);
+    public static final RegistryObject<Item> ICICLE = blockItem("icicle", ModBlocks.ICICLE);
+
     public static final RegistryObject<Item> SULFUR = ITEMS.register("sulfur",
             () -> new Item(new Item.Properties().group(ItemGroup.MATERIALS)));
     public static final RegistryObject<Item> FROST_CRYSTAL = ITEMS.register("frost_crystal",
@@ -59,6 +64,10 @@ public final class ModItems {
             () -> new Item(new Item.Properties().group(ItemGroup.MATERIALS)));
     public static final RegistryObject<Item> END_SHARD = ITEMS.register("end_shard",
             () -> new Item(new Item.Properties().group(ItemGroup.MATERIALS)));
+
+    public static final RegistryObject<Item> PENGUIN_SPAWN_EGG = ITEMS.register("penguin_spawn_egg",
+            () -> new SpawnEggItem(ModEntities.PENGUIN.get(), 0x22283A, 0xF0F4F8,
+                    new Item.Properties().group(ItemGroup.MISC)));
 
     private static RegistryObject<Item> blockItem(String name, RegistryObject<Block> block) {
         return ITEMS.register(name, () -> new BlockItem(block.get(),
